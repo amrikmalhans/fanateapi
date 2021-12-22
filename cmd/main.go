@@ -1,9 +1,11 @@
 package main
 
 import (
-	"fmt"
+	"github.com/amrikmalhans/fanateapi/cmd/api/routes"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
+
+	routes.Routes()
+	
 }

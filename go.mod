@@ -1,5 +1,5 @@
-module fanate-backend
+module github.com/amrikmalhans/fanateapi
 
 go 1.17
 
-require github.com/gorilla/mux v1.8.0 // indirect
+require github.com/gorilla/mux v1.8.0
