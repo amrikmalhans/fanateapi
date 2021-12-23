@@ -10,7 +10,9 @@ import (
 
 func Routes() {
     r := mux.NewRouter()
+	r.HandleFunc("/", handlers.HandleIndex).Methods("GET")
     r.HandleFunc("/login", handlers.HandleLogin).Methods("GET")
-
+	r.HandleFunc("/callback/", handlers.HandleCallback).Methods("GET")
+	
 	log.Fatal(http.ListenAndServe(":9000", r))
 }

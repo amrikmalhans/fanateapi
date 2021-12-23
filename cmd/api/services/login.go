@@ -5,17 +5,34 @@ import (
 )
 
 const (
-	CLIENT_ID     = "013b8cf33386425d9835b0f8ed768125"
-	REDIRECT_URI  = "http://localhost:9000/callback"
+	CLIENT_ID     = ""
+	REDIRECT_URI  = "http://localhost:9000/callback/"
+	SCOPE 		  = "user-read-private user-read-email"
+	CLIENT_SECRET = ""
 )
 
-func Login() (string, error) {
-	rand, err := helpers.GenerateRandomString(16)
+type Credentials struct {
+	Client_ID string `json:"client_id"`
+	Redirect_URI string `json:"redirect_uri"`
+	Scope string `json:"scope"`
+	State string `json:"rand"`
+
+} 
+
+func Login() *Credentials {
+	state, err := helpers.GenerateRandomString(16)
 
 	if err != nil {
-		return "", err
+		panic(err)
 	}
 
-	return rand, err
+	 cred := &Credentials{
+		Client_ID: CLIENT_ID,
+		Redirect_URI: REDIRECT_URI,
+		Scope: SCOPE,
+		State: state,
+	}
 
+	
+	return cred
 }
